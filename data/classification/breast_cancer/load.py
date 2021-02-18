@@ -9,7 +9,7 @@ class BreastCancerDataset(Dataset):
 
     def __init__(self, path_data="data.csv"):
 
-        # Load raw csv file and recode target (col 1)
+        # Load raw csv file and recode target (col 1, start from 0)
         #   M == 1 == Bad
         #   B == 0 == Good
         tmp_df = pd.read_csv(

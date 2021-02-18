@@ -2,5 +2,11 @@
     "python.pythonPath": "D:\\Users\\lgfz1\\Anaconda3\\envs\\th-federated\\python.exe"
     , "python.autoComplete.extraPaths": [
         "./src/*"
+    ],
+    "cSpell.ignoreWords": [
+        "matmul",
+        "randn",
+        "setosa",
+        "virginica"
     ]
 }
