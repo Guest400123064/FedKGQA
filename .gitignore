@@ -4,4 +4,5 @@ data/word_embedding/glove
 # Large KG file
 
 # Py-cache
-*__pycache__*
+*__pycache__
+*__init__.py

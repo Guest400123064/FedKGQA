@@ -8,9 +8,9 @@ import torch.nn.functional as F
 import pandas as pd
 import numpy as np
 
-sys.path.insert(0, "../../")
-from data.breast_cancer.load import BreastCancerDataset
-from model.logistic_regression.model import LogisticRegression
+sys.path.insert(0, "../../..")
+from data.classification.breast_cancer.load import BreastCancerDataset
+from src.intro_torch.logistic_regression.model import LogisticRegression
 
 
 TRAIN_PARAM = {
@@ -36,7 +36,7 @@ def evaluate(model, dataset):
 def main(model) -> int:
 
     data_loader = torch.utils.data.DataLoader(
-        BreastCancerDataset("../../data/breast_cancer/data.csv")
+        BreastCancerDataset("../../../data/classification/breast_cancer/data.csv")
         , **DATASET_PARAM
     )
     
