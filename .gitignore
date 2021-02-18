@@ -1,0 +1,7 @@
+# Large word embedding file
+data/word_embedding/glove
+
+# Large KG file
+
+# Py-cache
+*__pycache__*
