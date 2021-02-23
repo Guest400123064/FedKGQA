@@ -34,7 +34,7 @@ class IrisDataset(Dataset):
             , dtype=torch.long
         )
 
-        # self.source = tmp_df  # DEBUG ONLY
+        self.source = tmp_df  # DEBUG ONLY
         return
 
     def __len__(self):
