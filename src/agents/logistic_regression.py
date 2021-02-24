@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from src.agents.base import BaseAgent
 
 
-class LogisticRegression(nn.Module):
+class LogisticReg(nn.Module):
 
     def __init__(self, factor_dim, target_dim):
         
@@ -19,7 +19,7 @@ class LogisticRegression(nn.Module):
         return F.log_softmax(linear, dim=-1)
 
 
-class LogisticRegressionAgent(BaseAgent):
+class LogisticRegAgent(BaseAgent):
 
     def __init__(self, config):
         super().__init__(config)

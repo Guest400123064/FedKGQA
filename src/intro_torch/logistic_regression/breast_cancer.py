@@ -10,7 +10,7 @@ import numpy as np
 
 sys.path.insert(0, "../../..")
 from data.classification.breast_cancer.load import BreastCancerDataset
-from src.intro_torch.logistic_regression.model import LogisticRegression
+from src.agents.logistic_regression import LogisticRegAgent
 
 
 TRAIN_PARAM = {
