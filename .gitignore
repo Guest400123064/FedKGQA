@@ -1,7 +1,10 @@
 # Large word embedding file
 data/word_embedding/glove
 
-# Large KG file
+# Large KG dataset
+
+# Large QA dataset
+data/question_answer/QASent
 
 # Py-cache
 *__pycache__

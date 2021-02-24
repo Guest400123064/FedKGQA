@@ -25,14 +25,6 @@ DATASET_PARAM = {
 }
 
 
-def train(model, dataset):
-    return
-
-
-def evaluate(model, dataset):
-    return
-
-
 def main(model) -> int:
 
     data_loader = torch.utils.data.DataLoader(

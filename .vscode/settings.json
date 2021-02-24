@@ -1,8 +1,8 @@
 {
-    "python.pythonPath": "D:\\Users\\lgfz1\\Anaconda3\\envs\\th-federated\\python.exe"
-    , "python.autoComplete.extraPaths": [
-        "./src/*"
-    ],
+    "python.pythonPath": "D:\\Users\\lgfz1\\Anaconda3\\envs\\th-federated\\python.exe", 
+    // "python.autoComplete.extraPaths": ["./src/*"],
+    // "python.analysis.extraPaths": ["./src/*"],
+    "python.languageServer": "Pylance",
     "cSpell.ignoreWords": [
         "matmul",
         "randn",
