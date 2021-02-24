@@ -5,8 +5,10 @@
     "python.languageServer": "Pylance",
     "cSpell.ignoreWords": [
         "matmul",
+        "nvcc",
         "randn",
         "setosa",
+        "timeit",
         "virginica"
     ]
 }
