@@ -10,8 +10,10 @@ def timeit(f):
         result = f(*args, **kwargs)
         end_time = time.time()
         seconds = end_time - start_time
-        logging.getLogger("Timer").info("   [-] %s : %2.5f sec, which is %2.5f min, which is %2.5f hour" %
-                                        (f.__name__, seconds, seconds / 60, seconds / 3600))
+        logging.getLogger("Timer").info(
+            "   [-] %s : %2.5f sec, which is %2.5f min, which is %2.5f hour" %
+                (f.__name__, seconds, seconds / 60, seconds / 3600)
+        )
         return result
 
     return timed

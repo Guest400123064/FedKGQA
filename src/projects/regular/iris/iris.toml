@@ -1,0 +1,15 @@
+[data]
+path = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\data\\classification\\iris\\data.csv"
+partition = [0.7, 0.3]
+
+[model]
+type = "Regression-Logistic"
+n_factor = 4
+n_class = 3
+
+[train]
+lr = 0.01
+batch_size = 8
+shuffle_train = true
+shuffle_valid = true
+epoch = 100

@@ -4,9 +4,14 @@
     // "python.analysis.extraPaths": ["./src/*"],
     "python.languageServer": "Pylance",
     "cSpell.ignoreWords": [
+        "fed",
+        "kgqa",
+        "lgfz",
+        "logistic",
         "matmul",
         "nvcc",
         "randn",
+        "regres",
         "setosa",
         "timeit",
         "virginica"

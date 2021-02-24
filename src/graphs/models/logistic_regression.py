@@ -10,8 +10,8 @@ class LogisticRegres(nn.Module):
         self.config = config
 
         self.linear = nn.Linear(
-            self.config.factor_dim
-            , self.config.target_dim
+            self.config.model.n_factor
+            , self.config.model.n_class
             , bias=True
         )
         return
