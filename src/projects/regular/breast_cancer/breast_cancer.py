@@ -54,8 +54,3 @@ def main(model) -> int:
             print(f"{e + 1}\t{batch_loss / batch_x.shape[0]}")
 
     return 0
-
-
-if __name__ == "__main__":
-    m = LogisticRegression(30, 2)
-    main(m)
