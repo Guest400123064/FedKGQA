@@ -1,23 +1,28 @@
 import torch
 import pandas as pd
-import numpy as np
 
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader, dataset, random_split
 
 
 class IrisDataset(Dataset):
 
-    def __init__(self, path_data="data.csv"):
+    def __init__(self, path="data.csv"):
 
         # Load raw csv file and recode target (col 4, start from 0)
         #   Iris-setosa     == 0
         #   Iris-versicolor == 1
         #   Iris-virginica  == 2
         tmp_df = pd.read_csv(
-            path_data
-            , header=None
-        ).replace(
-            {4: {
+            path, names=[
+                "sep_len"
+                , "sep_wid"
+                , "pet_len"
+                , "pet_wid"
+                , "class"
+            ]
+        )
+        tmp_df = tmp_df.replace(
+            {"class": {
                 "Iris-setosa": 0
                 , "Iris-versicolor": 1
                 , "Iris-virginica": 2
@@ -26,15 +31,12 @@ class IrisDataset(Dataset):
 
         # Split XY & convert to tensors
         self.factor = torch.tensor(
-            tmp_df.iloc[:, 0:3].values
-            , dtype=torch.float32
+            tmp_df.loc[:, "sep_len":"pet_wid"].values, dtype=torch.float32
         )
         self.target = torch.tensor(
-            tmp_df.iloc[:, 4].values
-            , dtype=torch.long
+            tmp_df.loc[:, "class"].values, dtype=torch.long
         )
-
-        self.source = tmp_df  # DEBUG ONLY
+        self.source = tmp_df  # For Debugging
         return
 
     def __len__(self):
@@ -48,5 +50,32 @@ class IrisDataset(Dataset):
         return self.factor[idx], self.target[idx]
 
 
-if __name__ == "__main__":
-    pass
+class IrisDataLoader:
+
+    def __init__(self, config):
+
+        # Basic Setup
+        self.config = config
+        self.dataset = IrisDataset(self.config.data.path)
+
+        # Random Partition for Simplicity
+        train_len = int(len(self.dataset) * self.config.data.partition[0])
+        valid_len = len(self.dataset) - train_len
+        train_dataset, valid_dataset = random_split(self.dataset, [train_len, valid_len])
+
+        # Create Loaders
+        self.train_loader = DataLoader(
+            train_dataset
+            , self.config.train.batch_size
+            , shuffle=True 
+        )
+        self.valid_loader = DataLoader(
+            valid_dataset
+            , self.config.train.batch_size
+            , shuffle=True
+        )
+        return
+
+    def view_raw(self):
+
+        return self.dataset.source
