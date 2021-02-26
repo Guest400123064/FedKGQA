@@ -1,7 +1,8 @@
 # Misc
+.vscode/launch.json
+.vscode/settings.json
 .vscode
-.vscode/
-tmp/
+tmp
 
 # Large word embedding file
 data/word_embedding/glove
