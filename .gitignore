@@ -12,4 +12,3 @@ data/question_answer/QASent
 
 # Py-cache
 *__pycache__
-*__init__.py
