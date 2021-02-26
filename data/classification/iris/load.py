@@ -20,8 +20,7 @@ class IrisDataset(Dataset):
                 , "pet_wid"
                 , "class"
             ]
-        )
-        tmp_df = tmp_df.replace(
+        ).replace(
             {"class": {
                 "Iris-setosa": 0
                 , "Iris-versicolor": 1
@@ -56,7 +55,7 @@ class IrisDataLoader:
 
         # Basic Setup
         self.config = config
-        self.dataset = IrisDataset(self.config.data.path)
+        self.dataset = IrisDataset(self.config.path.dataset)
 
         # Random Partition for Simplicity
         train_len = int(len(self.dataset) * self.config.data.partition[0])
@@ -67,12 +66,12 @@ class IrisDataLoader:
         self.train_loader = DataLoader(
             train_dataset
             , self.config.train.batch_size
-            , shuffle=True 
+            , shuffle=self.config.train.shuffle_train
         )
         self.valid_loader = DataLoader(
             valid_dataset
             , self.config.train.batch_size
-            , shuffle=True
+            , shuffle=self.config.train.shuffle_valid
         )
         return
 

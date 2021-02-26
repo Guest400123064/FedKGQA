@@ -4,6 +4,7 @@
     // "python.analysis.extraPaths": ["./src/*"],
     "python.languageServer": "Pylance",
     "cSpell.ignoreWords": [
+        "datefmt",
         "fed",
         "kgqa",
         "lgfz",

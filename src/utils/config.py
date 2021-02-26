@@ -22,3 +22,7 @@ def read_config(path):
 
 def process_config(path):
     return
+
+
+def print_config(config):
+    return

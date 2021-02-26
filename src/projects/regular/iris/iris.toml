@@ -1,15 +1,22 @@
 [data]
-path = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\data\\classification\\iris\\data.csv"
-partition = [0.7, 0.3]
+    partition = [0.7, 0.3]
 
 [model]
-type = "Regression-Logistic"
-n_factor = 4
-n_class = 3
+    type = "Regression-Logistic"
+    path = ""
+    n_factor = 4
+    n_class = 3
 
 [train]
-lr = 0.01
-batch_size = 8
-shuffle_train = true
-shuffle_valid = true
-epoch = 100
+    lr = 0.01
+    batch_size = 16
+    shuffle_train = true
+    shuffle_valid = true
+    max_epoch = 64
+    log_interval = 4
+
+[path]
+    checkpoint = ""
+    parameters = ""
+    dataset = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\data\\classification\\iris\\data.csv"
+    train_log = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\src\\projects\\regular\\iris\\iris.log"

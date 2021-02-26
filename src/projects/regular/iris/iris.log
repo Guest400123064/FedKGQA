@@ -1,0 +1,129 @@
+INFO:IrisLRAgent:[ CONFIG ] :: Iris LR model will run on CPU
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 0 [64/105 (57%)]	Train Loss: 1.357505
+INFO:IrisLRAgent:[ VALID ] :: Epoch 0	Valid Loss: 0.075775	#Correct: [4/45 (9%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 1 [64/105 (57%)]	Train Loss: 0.969806
+INFO:IrisLRAgent:[ VALID ] :: Epoch 1	Valid Loss: 0.063394	#Correct: [4/45 (9%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 2 [64/105 (57%)]	Train Loss: 0.940918
+INFO:IrisLRAgent:[ VALID ] :: Epoch 2	Valid Loss: 0.060466	#Correct: [28/45 (62%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 3 [64/105 (57%)]	Train Loss: 0.984343
+INFO:IrisLRAgent:[ VALID ] :: Epoch 3	Valid Loss: 0.055929	#Correct: [21/45 (47%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 4 [64/105 (57%)]	Train Loss: 0.975950
+INFO:IrisLRAgent:[ VALID ] :: Epoch 4	Valid Loss: 0.053775	#Correct: [19/45 (42%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 5 [64/105 (57%)]	Train Loss: 0.736976
+INFO:IrisLRAgent:[ VALID ] :: Epoch 5	Valid Loss: 0.052257	#Correct: [20/45 (44%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 6 [64/105 (57%)]	Train Loss: 0.746920
+INFO:IrisLRAgent:[ VALID ] :: Epoch 6	Valid Loss: 0.050965	#Correct: [18/45 (40%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 7 [64/105 (57%)]	Train Loss: 0.775893
+INFO:IrisLRAgent:[ VALID ] :: Epoch 7	Valid Loss: 0.050238	#Correct: [18/45 (40%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 8 [64/105 (57%)]	Train Loss: 0.860704
+INFO:IrisLRAgent:[ VALID ] :: Epoch 8	Valid Loss: 0.048751	#Correct: [27/45 (60%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 9 [64/105 (57%)]	Train Loss: 0.730330
+INFO:IrisLRAgent:[ VALID ] :: Epoch 9	Valid Loss: 0.047806	#Correct: [26/45 (58%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 10 [64/105 (57%)]	Train Loss: 0.666149
+INFO:IrisLRAgent:[ VALID ] :: Epoch 10	Valid Loss: 0.048145	#Correct: [22/45 (49%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 11 [64/105 (57%)]	Train Loss: 0.641938
+INFO:IrisLRAgent:[ VALID ] :: Epoch 11	Valid Loss: 0.045862	#Correct: [20/45 (44%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 12 [64/105 (57%)]	Train Loss: 0.736517
+INFO:IrisLRAgent:[ VALID ] :: Epoch 12	Valid Loss: 0.045926	#Correct: [27/45 (60%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 13 [64/105 (57%)]	Train Loss: 0.603804
+INFO:IrisLRAgent:[ VALID ] :: Epoch 13	Valid Loss: 0.045253	#Correct: [30/45 (67%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 14 [64/105 (57%)]	Train Loss: 0.806179
+INFO:IrisLRAgent:[ VALID ] :: Epoch 14	Valid Loss: 0.044668	#Correct: [19/45 (42%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 15 [64/105 (57%)]	Train Loss: 0.633939
+INFO:IrisLRAgent:[ VALID ] :: Epoch 15	Valid Loss: 0.043761	#Correct: [27/45 (60%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 16 [64/105 (57%)]	Train Loss: 0.630817
+INFO:IrisLRAgent:[ VALID ] :: Epoch 16	Valid Loss: 0.043889	#Correct: [22/45 (49%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 17 [64/105 (57%)]	Train Loss: 0.728781
+INFO:IrisLRAgent:[ VALID ] :: Epoch 17	Valid Loss: 0.042768	#Correct: [26/45 (58%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 18 [64/105 (57%)]	Train Loss: 0.658147
+INFO:IrisLRAgent:[ VALID ] :: Epoch 18	Valid Loss: 0.042447	#Correct: [26/45 (58%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 19 [64/105 (57%)]	Train Loss: 0.616938
+INFO:IrisLRAgent:[ VALID ] :: Epoch 19	Valid Loss: 0.041402	#Correct: [29/45 (64%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 20 [64/105 (57%)]	Train Loss: 0.728129
+INFO:IrisLRAgent:[ VALID ] :: Epoch 20	Valid Loss: 0.040964	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 21 [64/105 (57%)]	Train Loss: 0.599841
+INFO:IrisLRAgent:[ VALID ] :: Epoch 21	Valid Loss: 0.040825	#Correct: [30/45 (67%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 22 [64/105 (57%)]	Train Loss: 0.645239
+INFO:IrisLRAgent:[ VALID ] :: Epoch 22	Valid Loss: 0.040390	#Correct: [30/45 (67%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 23 [64/105 (57%)]	Train Loss: 0.586069
+INFO:IrisLRAgent:[ VALID ] :: Epoch 23	Valid Loss: 0.039540	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 24 [64/105 (57%)]	Train Loss: 0.629024
+INFO:IrisLRAgent:[ VALID ] :: Epoch 24	Valid Loss: 0.040086	#Correct: [24/45 (53%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 25 [64/105 (57%)]	Train Loss: 0.660774
+INFO:IrisLRAgent:[ VALID ] :: Epoch 25	Valid Loss: 0.039179	#Correct: [24/45 (53%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 26 [64/105 (57%)]	Train Loss: 0.521033
+INFO:IrisLRAgent:[ VALID ] :: Epoch 26	Valid Loss: 0.038729	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 27 [64/105 (57%)]	Train Loss: 0.689427
+INFO:IrisLRAgent:[ VALID ] :: Epoch 27	Valid Loss: 0.038568	#Correct: [25/45 (56%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 28 [64/105 (57%)]	Train Loss: 0.586883
+INFO:IrisLRAgent:[ VALID ] :: Epoch 28	Valid Loss: 0.037790	#Correct: [30/45 (67%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 29 [64/105 (57%)]	Train Loss: 0.648044
+INFO:IrisLRAgent:[ VALID ] :: Epoch 29	Valid Loss: 0.037885	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 30 [64/105 (57%)]	Train Loss: 0.564254
+INFO:IrisLRAgent:[ VALID ] :: Epoch 30	Valid Loss: 0.037699	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 31 [64/105 (57%)]	Train Loss: 0.680689
+INFO:IrisLRAgent:[ VALID ] :: Epoch 31	Valid Loss: 0.037053	#Correct: [33/45 (73%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 32 [64/105 (57%)]	Train Loss: 0.645318
+INFO:IrisLRAgent:[ VALID ] :: Epoch 32	Valid Loss: 0.036368	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 33 [64/105 (57%)]	Train Loss: 0.642957
+INFO:IrisLRAgent:[ VALID ] :: Epoch 33	Valid Loss: 0.036666	#Correct: [30/45 (67%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 34 [64/105 (57%)]	Train Loss: 0.511300
+INFO:IrisLRAgent:[ VALID ] :: Epoch 34	Valid Loss: 0.036218	#Correct: [34/45 (76%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 35 [64/105 (57%)]	Train Loss: 0.593853
+INFO:IrisLRAgent:[ VALID ] :: Epoch 35	Valid Loss: 0.036393	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 36 [64/105 (57%)]	Train Loss: 0.543130
+INFO:IrisLRAgent:[ VALID ] :: Epoch 36	Valid Loss: 0.036045	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 37 [64/105 (57%)]	Train Loss: 0.589496
+INFO:IrisLRAgent:[ VALID ] :: Epoch 37	Valid Loss: 0.035730	#Correct: [34/45 (76%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 38 [64/105 (57%)]	Train Loss: 0.574595
+INFO:IrisLRAgent:[ VALID ] :: Epoch 38	Valid Loss: 0.035616	#Correct: [34/45 (76%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 39 [64/105 (57%)]	Train Loss: 0.591257
+INFO:IrisLRAgent:[ VALID ] :: Epoch 39	Valid Loss: 0.035134	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 40 [64/105 (57%)]	Train Loss: 0.567121
+INFO:IrisLRAgent:[ VALID ] :: Epoch 40	Valid Loss: 0.035574	#Correct: [35/45 (78%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 41 [64/105 (57%)]	Train Loss: 0.521099
+INFO:IrisLRAgent:[ VALID ] :: Epoch 41	Valid Loss: 0.035283	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 42 [64/105 (57%)]	Train Loss: 0.513248
+INFO:IrisLRAgent:[ VALID ] :: Epoch 42	Valid Loss: 0.034503	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 43 [64/105 (57%)]	Train Loss: 0.480563
+INFO:IrisLRAgent:[ VALID ] :: Epoch 43	Valid Loss: 0.034332	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 44 [64/105 (57%)]	Train Loss: 0.485551
+INFO:IrisLRAgent:[ VALID ] :: Epoch 44	Valid Loss: 0.033571	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 45 [64/105 (57%)]	Train Loss: 0.579852
+INFO:IrisLRAgent:[ VALID ] :: Epoch 45	Valid Loss: 0.033723	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 46 [64/105 (57%)]	Train Loss: 0.512252
+INFO:IrisLRAgent:[ VALID ] :: Epoch 46	Valid Loss: 0.033596	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 47 [64/105 (57%)]	Train Loss: 0.509379
+INFO:IrisLRAgent:[ VALID ] :: Epoch 47	Valid Loss: 0.033301	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 48 [64/105 (57%)]	Train Loss: 0.496048
+INFO:IrisLRAgent:[ VALID ] :: Epoch 48	Valid Loss: 0.033656	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 49 [64/105 (57%)]	Train Loss: 0.469630
+INFO:IrisLRAgent:[ VALID ] :: Epoch 49	Valid Loss: 0.033519	#Correct: [32/45 (71%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 50 [64/105 (57%)]	Train Loss: 0.764601
+INFO:IrisLRAgent:[ VALID ] :: Epoch 50	Valid Loss: 0.033193	#Correct: [33/45 (73%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 51 [64/105 (57%)]	Train Loss: 0.517669
+INFO:IrisLRAgent:[ VALID ] :: Epoch 51	Valid Loss: 0.034253	#Correct: [31/45 (69%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 52 [64/105 (57%)]	Train Loss: 0.568061
+INFO:IrisLRAgent:[ VALID ] :: Epoch 52	Valid Loss: 0.033742	#Correct: [33/45 (73%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 53 [64/105 (57%)]	Train Loss: 0.476752
+INFO:IrisLRAgent:[ VALID ] :: Epoch 53	Valid Loss: 0.032835	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 54 [64/105 (57%)]	Train Loss: 0.480278
+INFO:IrisLRAgent:[ VALID ] :: Epoch 54	Valid Loss: 0.032557	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 55 [64/105 (57%)]	Train Loss: 0.480540
+INFO:IrisLRAgent:[ VALID ] :: Epoch 55	Valid Loss: 0.032434	#Correct: [43/45 (96%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 56 [64/105 (57%)]	Train Loss: 0.403259
+INFO:IrisLRAgent:[ VALID ] :: Epoch 56	Valid Loss: 0.032192	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 57 [64/105 (57%)]	Train Loss: 0.576935
+INFO:IrisLRAgent:[ VALID ] :: Epoch 57	Valid Loss: 0.031785	#Correct: [39/45 (87%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 58 [64/105 (57%)]	Train Loss: 0.461034
+INFO:IrisLRAgent:[ VALID ] :: Epoch 58	Valid Loss: 0.031747	#Correct: [39/45 (87%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 59 [64/105 (57%)]	Train Loss: 0.404563
+INFO:IrisLRAgent:[ VALID ] :: Epoch 59	Valid Loss: 0.031771	#Correct: [41/45 (91%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 60 [64/105 (57%)]	Train Loss: 0.487492
+INFO:IrisLRAgent:[ VALID ] :: Epoch 60	Valid Loss: 0.031437	#Correct: [43/45 (96%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 61 [64/105 (57%)]	Train Loss: 0.339872
+INFO:IrisLRAgent:[ VALID ] :: Epoch 61	Valid Loss: 0.031136	#Correct: [43/45 (96%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 62 [64/105 (57%)]	Train Loss: 0.480322
+INFO:IrisLRAgent:[ VALID ] :: Epoch 62	Valid Loss: 0.031810	#Correct: [35/45 (78%)]
+INFO:IrisLRAgent:[ TRAIN ] :: Epoch 63 [64/105 (57%)]	Train Loss: 0.468149
+INFO:IrisLRAgent:[ VALID ] :: Epoch 63	Valid Loss: 0.030694	#Correct: [43/45 (96%)]
