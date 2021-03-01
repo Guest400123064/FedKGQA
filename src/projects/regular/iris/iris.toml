@@ -16,7 +16,8 @@
     log_interval = 4
 
 [path]
+    root_dir = "D:/Users/lgfz1/Documents/fed_kgqa/"
     checkpoint = ""
     parameters = ""
-    dataset = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\data\\classification\\iris\\data.csv"
-    train_log = "D:\\Users\\lgfz1\\Documents\\fed_kgqa\\src\\projects\\regular\\iris\\iris.log"
+    dataset = "data/classification/iris/data.csv"
+    train_log = "src/projects/regular/iris/iris.log"

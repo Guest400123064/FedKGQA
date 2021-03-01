@@ -1,3 +1,4 @@
+import os
 import logging
 
 import torch
@@ -15,7 +16,10 @@ class IrisLRAgent(BaseAgent):
 
         # Setup logger
         logging.basicConfig(
-            filename=self.config.path.train_log
+            filename=os.path.join(
+                self.config.path.root_dir
+                , self.config.path.train_log
+            )
             , filemode="w"
             , level=logging.DEBUG
             , datefmt="%H:%M:%S"

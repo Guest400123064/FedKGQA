@@ -1,3 +1,4 @@
+import os
 import torch
 import pandas as pd
 
@@ -55,7 +56,12 @@ class IrisDataLoader:
 
         # Basic Setup
         self.config = config
-        self.dataset = IrisDataset(self.config.path.dataset)
+        self.dataset = IrisDataset(
+            os.path.join(
+                self.config.path.root_dir
+                , self.config.path.dataset
+            )
+        )
 
         # Random Partition for Simplicity
         train_len = int(len(self.dataset) * self.config.data.partition[0])
