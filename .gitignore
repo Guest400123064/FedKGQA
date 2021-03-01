@@ -5,12 +5,14 @@
 tmp
 
 # Large word embedding file
-data/word_embedding/glove
+data/word_embedding/glove/glove.6B.50d.txt
 
 # Large KG dataset
 
 # Large QA dataset
-data/question_answer/QASent
+
+# Other large dataset
+data/classification/toxic_comments/data.csv
 
 # Py-cache
 *__pycache__
