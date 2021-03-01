@@ -13,6 +13,7 @@ data/word_embedding/glove/glove.6B.50d.txt
 
 # Other large dataset
 data/classification/toxic_comments/data.csv
+data/classification/toxic_comments/cache
 
 # Py-cache
 *__pycache__
