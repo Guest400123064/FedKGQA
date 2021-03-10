@@ -2,7 +2,7 @@ import os
 import torch
 import pandas as pd
 
-from torch.utils.data import Dataset, DataLoader, dataset, random_split
+from torch.utils.data import Dataset, DataLoader, random_split
 
 
 class IrisDataset(Dataset):
