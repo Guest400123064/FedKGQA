@@ -11,7 +11,6 @@ from torch.utils.data import (
 )
 
 
-
 class BreastCancerDataset(Dataset):
 
     def __init__(self, path):
@@ -51,7 +50,7 @@ class BreastCancerDataset(Dataset):
 
 class BreastCancerDataLoader(object):
 
-    def __init__(self, config):
+    def __init__(self, config: EasyDict):
         self.config = config
 
         # Load data

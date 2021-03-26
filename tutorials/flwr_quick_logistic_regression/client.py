@@ -1,67 +1,83 @@
+# Misc
 import os, sys
-from easydict import EasyDict
-from collections import OrderedDict
-
 import numpy as np
+from easydict import EasyDict
 
+# Typing
+from typing import Dict, List, Tuple
+
+# PyTorch
 import torch
+
+# For federated learning using flower
 import flwr as fl
-from torch.nn.modules import linear
 
 # Agent
-sys.path.append("..")
+sys.path.append(
+    os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "../.."
+    )
+)
 from src.agents.breast_cancer import BreastCancerLRAgent
-
-
-CONFIG = EasyDict({
-    "data": {
-        "path_dir": "../data/classification/breast_cancer"
-        , "path_file": "data.csv"
-        , "pct_train": 0.7
-        , "batch_size": 4
-    },
-    "model": {
-        "n_factor": 30
-    },
-    "train": {
-        "max_epoch": 5
-        , "lr": 0.01
-        , "log_interval": 20
-    }
-})
-bc_agent = BreastCancerLRAgent(CONFIG)
 
 
 class BreastCancerLRClient(fl.client.NumPyClient):
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, agent) -> None:
 
-        self.a = bc_agent
+        self.agent = agent
         return
 
-    def get_parameters(self):
-        return [val.cpu().numpy() for _, val in self.a.model.state_dict().items()]
+    def get_parameters(self) -> List[np.ndarray]:
 
-    def set_parameters(self, parameters):
-        params_dict = zip(self.a.model.state_dict().keys(), parameters)
-        state_dict = OrderedDict({k: torch.Tensor(v) for k, v in params_dict})
-        self.a.model.load_state_dict(state_dict, strict=True)
+        params = self.agent.get_parameters()
+        return params
 
-    def fit(self, parameters, config):
-        self.set_parameters(parameters)
-        self.a.train_one_epoch()
-        return self.get_parameters(), len(self.a.loader.loader_train)
+    def set_parameters(self, parameters: List[np.ndarray]) -> None:
 
-    def evaluate(self, parameters, config):
-        self.set_parameters(parameters)
-        loss = self.a.validate()
-        return len(self.a.loader.loader_valid), float(loss), float(loss)
+        self.agent.set_parameters(parameters)
+        return
 
-x = np.copy(bc_agent.model.linear.weight.detach().numpy())
+    def fit(
+        self
+        , parameters: List[np.ndarray]
+        , config: Dict[str, str]
+    ) -> Tuple[List[np.ndarray], int]:
 
-fl.client.start_numpy_client("127.0.0.1:8080", client=BreastCancerLRClient())
+        fit_result = self.agent.fit(parameters, config)
+        return fit_result
 
-y = bc_agent.model.linear.weight.detach().numpy()
+    def evaluate(
+        self
+        , parameters: List[np.ndarray]
+        , config: Dict[str, str]
+    ) -> Tuple[float, int, Dict[str, float]]:
 
-print(np.sum(x - y))
+        eval_result = self.agent.evaluate(parameters, config)
+        return eval_result
+
+
+if __name__ == "__main__":
+
+    CONFIG = EasyDict({
+        "data": {
+            "path_dir": "data/classification/breast_cancer"
+            , "path_file": "data.csv"
+            , "pct_train": 0.7
+            , "batch_size": 4
+        },
+        "model": {
+            "n_factor": 30
+        },
+        "train": {
+            "max_epoch": 5
+            , "lr": 0.01
+            , "log_interval": 20
+        }
+    })
+
+    bc_agent = BreastCancerLRAgent(CONFIG)
+    fl.client.start_numpy_client(
+        "127.0.0.1:8080"
+        , client=BreastCancerLRClient(bc_agent)
+    )

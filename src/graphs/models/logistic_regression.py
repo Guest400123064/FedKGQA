@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from easydict import EasyDict
 
 
 class LogisticRegression(nn.Module):
@@ -11,7 +12,7 @@ class LogisticRegression(nn.Module):
           are probabilities.
     """
 
-    def __init__(self, config):
+    def __init__(self, config: EasyDict):
         super().__init__()
         self.config = config
 

@@ -4,7 +4,7 @@ The Base Agent class, where all other agents inherit from, that contains definit
 import logging
 
 
-class BaseAgent:
+class BaseAgent(object):
     """
     This base class will contain the base functions to be overloaded by any agent you will implement.
     """

@@ -1,8 +1,16 @@
-import os
+# Misc
+import numpy as np
+from easydict import EasyDict
+from collections import OrderedDict
 
+# Typing
+from typing import Dict, List, Tuple
+
+# PyTorch
 import torch
 import torch.nn as nn
 
+# Models and dataloaders
 from src.agents.base import BaseAgent
 from src.graphs.models.logistic_regression import LogisticRegression
 from data.classification.breast_cancer.load import BreastCancerDataLoader
@@ -10,7 +18,15 @@ from data.classification.breast_cancer.load import BreastCancerDataLoader
 
 class BreastCancerLRAgent(BaseAgent):
 
-    def __init__(self, config):
+    """
+    Desc:
+        The Breast Cancer Logistic Regression Agents. Besides the basic 
+          implementation, this class also encapsulates APIs to communicate 
+          with Flower Client for federated learning. This implementation is 
+          compatible between Fed & Non-Fed learning.
+    """
+
+    def __init__(self, config: EasyDict):
         self.config = config
 
         # Model Init
@@ -121,7 +137,7 @@ class BreastCancerLRAgent(BaseAgent):
                 self.cur_epoch, loss_val / n_batch
             )
         )
-        return loss_val / n_batch
+        return
 
     def finalize(self):
 
@@ -132,3 +148,63 @@ class BreastCancerLRAgent(BaseAgent):
         """
 
         pass
+
+    # ---------------- Flower Client Interfaces --------------------------- #
+    def get_parameters(self) -> List[np.ndarray]:
+
+        """
+        Note:
+            The ORDER MUST BE ENSURED!!
+        """
+
+        params = [
+            val.cpu().numpy() for _, val in self.model.state_dict().items()
+        ]
+        return params
+
+    def set_parameters(self, parameters: List[np.ndarray]) -> None:
+
+        """
+        Note:
+            PyTorch implementation of `.state_dict()` is OrderedDict. Thus, 
+              we can safely set parameters by iterating through the received 
+              list of parameters (np.ndarray's).
+        """
+
+        state_dict = OrderedDict({
+            key: torch.Tensor(val) for key, val in zip(
+                self.model.state_dict().keys(), parameters
+            )
+        })
+        self.model.load_state_dict(
+            state_dict=state_dict
+            , strict=True  # <-- Make sure that keys mach exactly
+        )
+        return
+
+    def fit(
+        self
+        , parameters: List[np.ndarray]
+        , config: Dict[str, str]
+    ) -> Tuple[List[np.ndarray], int]:
+
+        self.set_parameters(parameters)
+        self.run()
+
+        new_params = self.get_parameters()
+        n_sample = len(self.loader.loader_train)
+
+        return new_params, int(n_sample)
+
+    def evaluate(
+        self
+        , parameters: List[np.ndarray]
+        , config: Dict[str, str]
+    ) -> Tuple[float, int, Dict[str, float]]:
+
+        self.set_parameters(parameters)
+
+        loss_val = -1
+        n_sample = len(self.loader.loader_valid)
+
+        return float(loss_val), int(n_sample), {"test": -1.}
