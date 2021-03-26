@@ -1,17 +1,23 @@
+import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
-class LogisticRegres(nn.Module):
+class LogisticRegression(nn.Module):
+
+    """
+    Desc:
+        PyTorch implementation of Logistic Regression Model. 
+          The predicted values (output of `self.forward(..)`)
+          are probabilities.
+    """
 
     def __init__(self, config):
-        
         super().__init__()
         self.config = config
 
         self.linear = nn.Linear(
-            self.config.model.n_factor
-            , self.config.model.n_class
+            self.config.n_factor
+            , out_features=1
             , bias=True
         )
         return
@@ -19,4 +25,4 @@ class LogisticRegres(nn.Module):
     def forward(self, x):
         
         linear = self.linear(x)
-        return F.log_softmax(linear, dim=-1)
+        return torch.sigmoid(linear)

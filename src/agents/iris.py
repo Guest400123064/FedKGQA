@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 
 from src.agents.base import BaseAgent
-from src.graphs.models.logistic_regression import LogisticRegres
+from src.graphs.models.logistic_regression import LogisticRegression
 from data.classification.iris.load import IrisDataLoader
 
 
@@ -28,7 +28,7 @@ class IrisLRAgent(BaseAgent):
 
         # Model settings
         self.data_loader = IrisDataLoader(self.config)
-        self.model = LogisticRegres(self.config)
+        self.model = LogisticRegression(self.config)
         self.loss = nn.NLLLoss()
         self.optimizer = torch.optim.SGD(
             self.model.parameters()
