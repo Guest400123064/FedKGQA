@@ -57,7 +57,7 @@ class BreastCancerLRAgent(BaseAgent):
         try:
             self.train()
         except KeyboardInterrupt:
-            print("[ INFO ] :: Keyboard Interruption, session ends")
+            print("[ INFO. ] :: Keyboard Interruption, session ends")
         return
 
     def train(self):
@@ -66,8 +66,11 @@ class BreastCancerLRAgent(BaseAgent):
         Desc:
             The main worker function that drive the training session.
         """
-
-        raise NotImplementedError
+        for _ in range(self.config.train.max_epoch):
+            self.cur_epoch += 1
+            self.train_one_epoch()
+            self.validate()
+        return
 
     def train_one_epoch(self):
 
@@ -76,7 +79,26 @@ class BreastCancerLRAgent(BaseAgent):
             Helper function of `self.train(...)`. One epoch of training.
         """
 
-        raise NotImplementedError
+        self.model.train()
+        self.cur_iter = 0
+
+        for batch_x, batch_y in self.loader.loader_train:
+            self.cur_iter += 1
+
+            self.optimizer.zero_grad()
+            pred = self.model.forward(batch_x)
+            # print(pred)
+            loss_val = self.loss_fn(pred, batch_y)
+            loss_val.backward()
+            self.optimizer.step()
+
+            if self.cur_iter % self.config.train.log_interval == 0:
+                print(
+                    "[ TRAIN ] :: Epoch: {:}\tBatch: {:}\tBatch Train Loss: {:.6f}".format(
+                        self.cur_epoch, self.cur_iter, loss_val.item()
+                    )
+                )
+        return
 
     def validate(self):
 
@@ -86,7 +108,20 @@ class BreastCancerLRAgent(BaseAgent):
               samples and calculate (mean) loss
         """
 
-        pass
+        self.model.eval()
+        loss_val, n_batch = 0, 0
+
+        with torch.no_grad():
+            for batch_x, batch_y in self.loader.loader_valid:
+                n_batch += 1
+                pred = self.model.forward(batch_x)
+                loss_val += self.loss_fn(pred, batch_y).item()
+        print(
+            "[ VALID ] :: Epoch: {:}\tBCE Loss: {:.6f}".format(
+                self.cur_epoch, loss_val / n_batch
+            )
+        )
+        return loss_val / n_batch
 
     def finalize(self):
 

@@ -32,7 +32,7 @@ class BreastCancerDataset(Dataset):
         # Split X, Y and convert to tensors
         self.factor = torch.tensor(
             self.df.iloc[:, 1:].values, dtype=torch.float
-        )
+        ) / 50
         self.target = torch.tensor(
             self.df.iloc[:, :1].values, dtype=torch.float
         )
