@@ -149,7 +149,7 @@ class BreastCancerLRAgent(BaseAgent):
 
         pass
 
-    # ---------------- Flower Client Interfaces --------------------------- #
+    # -------------------- Flower Client Interfaces --------------------------- #
     def get_parameters(self) -> List[np.ndarray]:
 
         """
@@ -203,8 +203,15 @@ class BreastCancerLRAgent(BaseAgent):
     ) -> Tuple[float, int, Dict[str, float]]:
 
         self.set_parameters(parameters)
+        self.model.eval()
 
-        loss_val = -1
+        loss_val, n_batch = 0, 0
         n_sample = len(self.loader.loader_valid)
 
-        return float(loss_val), int(n_sample), {"test": -1.}
+        with torch.no_grad():
+            for batch_x, batch_y in self.loader.loader_valid:
+                n_batch += 1
+                pred = self.model.forward(batch_x)
+                loss_val += self.loss_fn(pred, batch_y).item()
+
+        return float(loss_val / n_batch), int(n_sample), {"test": -1.}
