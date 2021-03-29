@@ -103,7 +103,6 @@ class BreastCancerLRAgent(BaseAgent):
 
             self.optimizer.zero_grad()
             pred = self.model.forward(batch_x)
-            # print(pred)
             loss_val = self.loss_fn(pred, batch_y)
             loss_val.backward()
             self.optimizer.step()
