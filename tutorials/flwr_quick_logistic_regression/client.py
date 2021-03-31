@@ -6,9 +6,6 @@ from easydict import EasyDict
 # Typing
 from typing import Dict, List, Tuple
 
-# PyTorch
-import torch
-
 # For federated learning using flower
 import flwr as fl
 
@@ -43,6 +40,8 @@ class BreastCancerLRClient(fl.client.NumPyClient):
         , parameters: List[np.ndarray]
         , config: Dict[str, str]
     ) -> Tuple[List[np.ndarray], int]:
+
+        print(f"[ DEBUG ] :: Test {config['test_msg']}")
 
         fit_result = self.agent.fit(parameters, config)
         return fit_result
