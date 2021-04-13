@@ -5,7 +5,7 @@
 tmp
 
 # Large word embedding file
-data/word_embedding/glove/glove.6B.50d.txt
+data/word_embedding/glove/glove*
 
 # Large KG dataset
 
