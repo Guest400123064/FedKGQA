@@ -118,10 +118,10 @@ class ToxicComtDataset(Dataset):
         self.vocab.build_vocab(list_comments)
 
         # To Torch tensors
-        self.factor = torch.tensor(
-            [self.vocab.text_to_num(t) for t in list_comments]
-            , dtype=torch.long
-        )
+        self.factor = [
+            torch.tensor(self.vocab.text_to_num(t), dtype=torch.long)
+                for t in list_comments
+        ]
         self.target = torch.tensor(
             self.df.iloc[:, 1:].values
             , dtype=torch.float16
