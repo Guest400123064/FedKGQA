@@ -87,11 +87,6 @@ class ToxicComtVocab(object):
         return self.vocab.lookup_indices([token])[0]
 
     @property
-    def vocab(self) -> Vocab:
-
-        return self.vocab
-
-    @property
     def pad_idx(self):
 
         return self.lookup_idx("<pad>")
