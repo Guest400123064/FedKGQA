@@ -189,7 +189,7 @@ class ToxicComtDataLoader(object):
         splr_valid = SubsetRandomSampler(self.idxs_valid)
 
         # Make loader
-        collate_fn = ToxicComtCollate(self.get_vocab().pad_idx())
+        collate_fn = ToxicComtCollate(self.get_vocab().pad_idx)
         self.loader_train = DataLoader(
             self.dataset
             , sampler=splr_train
