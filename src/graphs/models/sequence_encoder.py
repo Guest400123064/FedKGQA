@@ -9,6 +9,14 @@ class RNNEncoder(nn.Module):
         super().__init__()
         self.config = config
 
+        self.rnn = nn.RNN(
+            input_size=config.input_size    
+            , hidden_size=config.hidden_size
+            , num_layers=config.num_layers
+            , batch_first=True
+        )
+        return
+
     def forward(self, x):
 
-        pass
+        return self.rnn(x)
