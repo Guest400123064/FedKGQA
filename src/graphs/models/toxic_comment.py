@@ -25,5 +25,5 @@ class ToxicComtModel(nn.Module):
         """
 
         _, hid_out = self.seq_encoder(x)
-        out = self.fc_out(enc)
+        out = self.fc_out(hid_out[-1])
         return out
