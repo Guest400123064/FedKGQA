@@ -116,12 +116,12 @@ class ToxicComtDataset(Dataset):
 
         # Build vocabulary
         list_comments = self.df.iloc[:, 0].values.tolist()
-        self.vocab = ToxicComtVocab()
-        self.vocab.build_vocab(list_comments)
+        self._vocab = ToxicComtVocab()
+        self._vocab.build_vocab(list_comments)
 
         # To Torch tensors
         self.factor = [
-            torch.tensor(self.vocab.text_to_num(t), dtype=torch.long)
+            torch.tensor(self._vocab.text_to_num(t), dtype=torch.long)
                 for t in list_comments
         ]
         self.target = torch.tensor(
@@ -130,9 +130,10 @@ class ToxicComtDataset(Dataset):
         )
         return
 
-    def get_vocab(self):
+    @property
+    def vocab(self):
 
-        return self.vocab
+        return self._vocab
 
     def __len__(self):
 
@@ -189,7 +190,7 @@ class ToxicComtDataLoader(object):
         splr_valid = SubsetRandomSampler(self.idxs_valid)
 
         # Make loader
-        collate_fn = ToxicComtCollate(self.get_vocab().pad_idx)
+        collate_fn = ToxicComtCollate(self.vocab.pad_idx)
         self.loader_train = DataLoader(
             self.dataset
             , sampler=splr_train
@@ -204,6 +205,7 @@ class ToxicComtDataLoader(object):
         )
         return
 
-    def get_vocab(self):
+    @property
+    def vocab(self):
 
-        return self.dataset.get_vocab()
+        return self.dataset.vocab
