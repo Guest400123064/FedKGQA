@@ -86,6 +86,13 @@ class ToxicComtVocab(object):
 
         return self.vocab.lookup_indices([token])[0]
 
+    def lookup_token(self, idx):
+
+        if (not self.is_built):
+            raise(Exception("[ ERROR ] :: Vocabulary not built"))
+
+        return self.vocab.itos[idx]
+
     @property
     def pad_idx(self):
 
@@ -99,7 +106,7 @@ class ToxicComtVocab(object):
 
 class ToxicComtDataset(Dataset):
 
-    def __init__(self, path):
+    def __init__(self, path, min_freq=5):
 
         # Index:
         #   "id"
@@ -116,7 +123,7 @@ class ToxicComtDataset(Dataset):
 
         # Build vocabulary
         list_comments = self.df.iloc[:, 0].values.tolist()
-        self._vocab = ToxicComtVocab()
+        self._vocab = ToxicComtVocab(min_freq=min_freq)
         self._vocab.build_vocab(list_comments)
 
         # To Torch tensors
@@ -173,6 +180,7 @@ class ToxicComtDataLoader(object):
         # Load data
         self.dataset = ToxicComtDataset(
             os.path.join(self.config.path_dir, self.config.path_file)
+            , min_freq=config.get("min_freq", 5)
         )
 
         # Split train test, possibly dev set
