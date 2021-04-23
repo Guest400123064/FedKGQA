@@ -29,7 +29,7 @@ class ToxicComtAgent(BaseAgent):
 
         # Model Init
         self.loader = ToxicComtDataLoader(self.config.data)
-        self.embed = WordEmbedding(self.config.word_embedding)
+        self.embed = WordEmbedding(self.config.embedding)
         self.model = ToxicComtModel(self.config.model)
         self.loss_fn = nn.BCELoss()
         self.optimizer = torch.optim.SGD(
@@ -41,25 +41,6 @@ class ToxicComtAgent(BaseAgent):
         self.cur_epoch = 0
         self.cur_iter = 0
         return
-
-    def load_checkpoint(self, path_check_pt):
-
-        """
-        Desc:
-            Check point loader, very useful if training a HUGE model and 
-              some exception happened. Not necessarily this implementation.
-        """
-
-        pass
-
-    def save_checkpoint(self, path_check_pt="checkpoint.pth.tar", is_best=0):
-
-        """
-        Desc:
-            Same as stated above.
-        """
-
-        pass
 
     def run(self):
 
@@ -139,16 +120,6 @@ class ToxicComtAgent(BaseAgent):
             )
         )
         return
-
-    def finalize(self):
-
-        """
-        Desc:
-            Finalizes all the operations of the 2 
-              Main classes of the process, the operator and the data loader
-        """
-
-        pass
 
     # -------------------- Flower Client Interfaces --------------------------- #
     def get_parameters(self) -> List[np.ndarray]:

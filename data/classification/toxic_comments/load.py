@@ -164,6 +164,7 @@ class ToxicComtCollate(object):
         #   factors = [t[0] for t in batch]
         #   targets = [t[1] for t in batch]
         factors, targets = zip(*batch)
+        targets = torch.stack(targets)
         factors = pad_sequence(
             factors
             , batch_first=True

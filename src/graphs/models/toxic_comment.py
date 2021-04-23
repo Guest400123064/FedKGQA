@@ -1,19 +1,18 @@
-import torch
 import torch.nn as nn
 from easydict import EasyDict
 
-from .sequence_encoder import RNNEncoder
+from .sequence_encoder import SequenceEncoder
 from .logistic_regression import MultiLogisticRegression
 
 
 class ToxicComtModel(nn.Module):
 
-    def __init__(self, config: EasyDict) -> None:
-        super().__init__()
-        self.config = config
+    def __init__(self, config: EasyDict):
+        super(ToxicComtModel, self).__init__()
 
-        self.seq_encoder = RNNEncoder(self.config_encoder)
-        self.fc_out = MultiLogisticRegression(self.config_fc_out)
+        self.seq_encoder = SequenceEncoder(config.sequence_encoder)
+        self.output_layer = MultiLogisticRegression(config.output_layer)
+        self.config = config
         return
 
     def forward(self, x):
@@ -24,6 +23,6 @@ class ToxicComtModel(nn.Module):
               instead of word indices.
         """
 
-        _, hid_out = self.seq_encoder(x)
-        out = self.fc_out(hid_out[-1])
+        hid = self.seq_encoder.embed_only(x)
+        out = self.output_layer.forward(hid)
         return out
