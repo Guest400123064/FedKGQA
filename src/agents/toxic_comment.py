@@ -27,9 +27,12 @@ class ToxicComtAgent(BaseAgent):
     def __init__(self, config: EasyDict):
         self.config = config
 
-        # Model Init
+        # Load data and word embedding
         self.loader = ToxicComtDataLoader(self.config.data)
+        self.vocab = self.loader.vocab
         self.embed = WordEmbedding(self.config.embedding)
+
+        # Model, loss function, optimizer initialization
         self.model = ToxicComtModel(self.config.model)
         self.loss_fn = nn.BCELoss()
         self.optimizer = torch.optim.SGD(
@@ -82,8 +85,8 @@ class ToxicComtAgent(BaseAgent):
             self.cur_iter += 1
 
             self.optimizer.zero_grad()
-            embed_x = self.embed.forward(batch_x)
-            pred = self.model.forward(embed_x)
+            embed_x = self.embed(batch_x)
+            pred = self.model(embed_x)
             loss_val = self.loss_fn(pred, batch_y)
             loss_val.backward()
             self.optimizer.step()
@@ -111,8 +114,8 @@ class ToxicComtAgent(BaseAgent):
             for batch_x, batch_y in self.loader.loader_valid:
                 n_batch += 1
 
-                embed_x = self.embed.forward(batch_x)
-                pred = self.model.forward(embed_x)
+                embed_x = self.embed(batch_x)
+                pred = self.model(embed_x)
                 loss_val += self.loss_fn(pred, batch_y).item()
         print(
             "[ VALID ] :: Epoch: {:}\tBCE Loss: {:.6f}".format(
